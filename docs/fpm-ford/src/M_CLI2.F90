@@ -3570,7 +3570,7 @@ class(*),intent(in) :: generic
       type is (logical)
          write(line(istart:),'(l1)') generic
       type is (character(len=*))
-         write(line(istart:),'(a)') trim(generic)
+         write(line(istart:),'(a)') generic
       type is (complex);                write(line(istart:),'("(",1pg0,",",1pg0,")")') generic
    end select
    istart=len_trim(line)+increment
@@ -5289,7 +5289,7 @@ function c(generic)
 class(*),intent(in) :: generic
 character(len=:),allocatable :: c
    select type(generic)
-      type is (character(len=*)); c=trim(generic)
+      type is (character(len=*)); c=generic
       class default
          c='unknown'
          stop 'get_many:: parameter name is not character'
